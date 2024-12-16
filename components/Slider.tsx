@@ -45,8 +45,8 @@ const x = useMotionValue(0)
           <motion.div
             initial={{ y: 700 }}
             animate={{ y: 0 }}
-            transition={{ delay: 0.8, duration: 1, type: 'spring', stiffness: 50 }}
-            className={` relative flex gap-20 h-[30rem] w-max items-center justify-center `}
+            transition={{ delay: 0, duration: 1, type: 'spring', stiffness: 50 }}
+            className={` absolute flex gap-20 h-[30rem] w-max items-center justify-center `}
             style={{ x: initAnimation ? x : undefined }}
           >
             {images.map((image, index) => (
@@ -56,7 +56,7 @@ const x = useMotionValue(0)
                 initial={{ rotate: 0 }}
                 animate={{ rotate: [0, 4 * (images.length - index), 0] }}
                 transition={{
-                  delay: 1 + 0.05 * (images.length - index),
+                  delay:  0.05 * (images.length - index),
                   duration: 1,
                   times: [0, 0.5, 1],
                   ease: 'anticipate',

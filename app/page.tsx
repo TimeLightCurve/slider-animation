@@ -8,7 +8,7 @@ import Slider from '@/components/Slider';
 export default function Home() {
   const [showSlider, setShowSlider] = useState(false)
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="popLayout">
       <motion.div className=" flex  h-screen w-screen bg-slate-200 justify-center items-center overflow-hidden">
         <MainContent
           showSlider={showSlider}
