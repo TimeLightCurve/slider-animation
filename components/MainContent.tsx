@@ -13,8 +13,8 @@ type MainProps = {
 
 export default function MainContent({ showSlider, setShowSlider }: MainProps) {
   return (
-      <MotionConfig transition={{duration: 0.5 ,ease:'easeIn'}}>
-    <AnimatePresence >
+    <MotionConfig transition={{ duration: 0.5, type: 'spring', stiffness: 50 }}>
+      <AnimatePresence>
         {!showSlider && (
           <motion.div className=" flex  h-screen w-screen bg-slate-200 justify-center items-center overflow-hidden">
             <motion.div className=" relative basis-1/3 h-full ">
@@ -39,7 +39,7 @@ export default function MainContent({ showSlider, setShowSlider }: MainProps) {
               <motion.div
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                exit={{ x: 400, opacity: 0, transition: {duration:0.5 ,delay: 0.3 } }}
+                exit={{ x: 400, opacity: 0, transition: { duration: 0.5, delay: 0.3 } }}
                 className=" flex justify-center items-center py-2 px-4 border border-green-600 rounded-full"
               >
                 {' '}
@@ -48,7 +48,7 @@ export default function MainContent({ showSlider, setShowSlider }: MainProps) {
               <motion.h1
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                exit={{ x: 400, opacity: 0, transition: {duration:0.5 ,delay: 0.2 } }}
+                exit={{ x: 400, opacity: 0, transition: { duration: 0.5, delay: 0.2 } }}
                 className=" text-3xl font-bold"
               >
                 {' '}
@@ -57,7 +57,7 @@ export default function MainContent({ showSlider, setShowSlider }: MainProps) {
               <motion.p
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                exit={{ x: 400, opacity: 0, transition: {duration:0.5 ,delay: 0.1 } }}
+                exit={{ x: 400, opacity: 0, transition: { duration: 0.5, delay: 0.1 } }}
                 className=" mt-4 w-1/2"
               >
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
@@ -72,14 +72,14 @@ export default function MainContent({ showSlider, setShowSlider }: MainProps) {
               <motion.button
                 initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                exit={{ x: 400, opacity: 0, transition: {duration:0.5 ,delay: 0 } }}
+                exit={{ x: 400, opacity: 0, transition: { duration: 0.5, delay: 0 } }}
                 className=" flex justify-center items-center bg-neutral-950 px-4 py-2 mt-4 text-slate-200"
               >
                 {' '}
                 Book an appointment
               </motion.button>
               <motion.button
-                initial={{ y: -100, opacity: 0 }}
+                initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 100, opacity: 0 }}
                 onClick={() => setShowSlider(true)}
@@ -91,7 +91,7 @@ export default function MainContent({ showSlider, setShowSlider }: MainProps) {
             </div>
           </motion.div>
         )}
-    </AnimatePresence>
-      </MotionConfig>
+      </AnimatePresence>
+    </MotionConfig>
   )
 }

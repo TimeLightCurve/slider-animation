@@ -43,6 +43,15 @@ const x = useMotionValue(0)
       {showSlider && (
         <>
           <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5, type: 'spring', stiffness: 50 }}
+            className="absolute h-screen w-screen flex justify-center items-center"
+          >
+            {' '}
+            <p className=" text-[24rem] text-slate-600/40">Services</p>
+          </motion.div>
+          <motion.div
             initial={{ y: 700 }}
             animate={{ y: 0 }}
             transition={{ delay: 0, duration: 1, type: 'spring', stiffness: 50 }}
@@ -65,14 +74,16 @@ const x = useMotionValue(0)
                 onAnimationComplete={() => index === images.length - 1 && setInitAnimation(true)}
                 className={` ${
                   initAnimation ? ' relative w-[50rem] h-[30rem]' : 'absolute w-96 h-72'
-                } ${ (initAnimation && index === currentIndex) ? 'w-[60rem] h-[35rem]' : ''}  bg-white border border-gray-500`}
+                } ${
+                  initAnimation && index === currentIndex ? 'w-[60rem] h-[35rem]' : ''
+                }  bg-white border border-gray-500 rounded-3xl origin-bottom-right`}
               >
                 <Image
                   src={image}
                   alt={`${image}${index}`}
                   height={1000}
                   width={1000}
-                  className= {`h-full w-full object-contain`}
+                  className={`h-full w-full object-contain`}
                 />
               </motion.div>
             ))}
